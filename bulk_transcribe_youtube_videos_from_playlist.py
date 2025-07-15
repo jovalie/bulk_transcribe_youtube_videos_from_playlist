@@ -19,15 +19,23 @@ from concurrent.futures import ProcessPoolExecutor
 # Constants for pricing
 WHISPER_COST_PER_MINUTE = 0.006
 
-convert_single_video = 1
+convert_single_video = False
 use_spacy_for_sentence_splitting = 1
 use_openai_api_for_transcription = 0
 max_simultaneous_youtube_downloads = 4
 disable_cuda_override = 0
 single_video_url = "https://www.youtube.com/watch?v=sWAaJF9Wk0w"
 playlist_url = (
-    "https://www.youtube.com/playlist?list=PLjpPMe3LP1XKgqqzqz4j6M8-_M_soYxiV"
+    "https://www.youtube.com/playlist?list=PLBAUUhONOrO8iOYvs3pAbuzb-A07ZdT9C"
 )
+
+# OpenAI API configuration
+openai_api_key = os.getenv("OPENAI_API_KEY")
+if use_openai_api_for_transcription and not openai_api_key:
+    raise ValueError(
+        "OPENAI_API_KEY environment variable is required when using OpenAI API for transcription"
+    )
+
 
 if convert_single_video:
     print(f"Processing a single video: {single_video_url}")
