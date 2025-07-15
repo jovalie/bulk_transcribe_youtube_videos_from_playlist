@@ -1,2 +1,27 @@
-[tool.ruff]
-ignore = ["E501"]
+[project]
+name = "bulk-transcribe-youtube-videos-from-playlist"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "jpz",email = "your_username@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "faster-whisper",
+    "psutil",
+    "pytubefix",
+    "pandas",
+    "fastapi",
+    "spacy",
+    "numba",
+    "openai",
+    "pydub",
+    "ruff",
+    "tqdm"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
